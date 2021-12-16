@@ -1,0 +1,177 @@
+@import "media-queries";
+
+$light: #f7f7f7;
+$dark: #222121;
+$lime: #00cc66;
+$orangeRed: #fb4b4e;
+$blue: #2541b2;
+
+%align-center {
+  display: flex;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Reem Kufi", sans-serif;
+}
+
+body {
+  background-image: linear-gradient(to right, #3a6186, #89253e);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: #e7e7e7;
+  padding: 0.5rem calc((100vw - 1200px) / 2);
+  position: relative;
+  z-index: 10;
+
+  &_logo {
+    text-decoration: none;
+    color: $dark;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-left: 25px;
+    @extend %align-center;
+
+    &:hover {
+      color: $lime;
+    }
+  }
+
+  &_bars {
+    opacity: 0;
+
+    @include tablet {
+      color: $dark;
+      opacity: 1;
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      font-size: 2rem;
+    }
+  }
+
+  &_menu {
+    @extend %align-center;
+    list-style: none;
+    cursor: pointer;
+    margin-right: 24px;
+    text-align: center;
+
+    @include tablet {
+      display: none;
+    }
+
+    &_link {
+      color: $dark;
+      @extend %align-center;
+      text-decoration: none;
+      justify-content: center;
+      padding: 0 1rem;
+
+      &:hover {
+        color: $lime;
+        transition: all 0.3s ease;
+        transform: scale(1.1);
+      }
+    }
+
+    #button {
+      padding: 12px 24px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      background: $lime;
+      margin-left: 16px;
+      color: $light;
+
+      &:hover {
+        background: $orangeRed;
+        transition: all 0.3s ease;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// Music App Section
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  header h1 {
+    margin: 50px 0 30px;
+    text-align: center;
+    font-size: 40px;
+    color: lightcyan;
+  }
+
+  header p {
+    font-size: 20px;
+  }
+
+  // pads
+  .pads {
+    background-color: lightblue;
+    width: 100%;
+    display: flex;
+
+    & > div {
+      height: 100px;
+      width: 100px;
+      flex: 1;
+    }
+
+    .pad1 {
+      background: #60d394;
+    }
+    .pad2 {
+      background: #d36060;
+    }
+    .pad3 {
+      background: #c060d3;
+    }
+    .pad4 {
+      background: #d3d160;
+    }
+    .pad5 {
+      background: #606bd3;
+    }
+    .pad6 {
+      background: #60c2d3;
+    }
+  }
+}
+
+@keyframes jump {
+  0% {
+    bottom: 0;
+    left: 20%;
+  }
+  50% {
+    bottom: 50%;
+    left: 50%;
+  }
+  100% {
+    bottom: 0;
+    left: 80%;
+  }
+}
+
+.visual > div {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  bottom: 0;
+  z-index: -1;
+}
